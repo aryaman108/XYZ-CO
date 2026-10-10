@@ -24,7 +24,7 @@
      ======================================================= */
   var FORM = {
     provider:  'web3forms',
-    accessKey: 'YOUR_WEB3FORMS_ACCESS_KEY',
+    accessKey: '2dcd4291-743e-4846-917f-6a6152f73c2d',
     email:     'you@example.com',
     subject:   'New enquiry from the XYZ Company website'
   };
