@@ -485,8 +485,15 @@
           <small class="err"></small>
         </div>
 
-        <button type="submit" class="btn btn--full">Send Message</button>
-        <p class="form__note" id="formNote" hidden>Thanks &mdash; your message has been noted. This is a front-end only demo, so nothing was actually sent.</p>
+        <!-- Honeypot: hidden from people, usually filled in by bots. -->
+        <div class="hp" aria-hidden="true">
+          <label for="botcheck">Leave this field empty</label>
+          <input type="text" id="botcheck" name="botcheck" tabindex="-1" autocomplete="off">
+        </div>
+
+        <button type="submit" class="btn btn--full" id="formSubmit">Send Message</button>
+
+        <p class="form__note" id="formNote" role="status" aria-live="polite" hidden></p>
       </form>
     </div>
   </div>

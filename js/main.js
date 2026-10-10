@@ -4,6 +4,31 @@
 (function () {
   'use strict';
 
+  /* =======================================================
+     CONTACT FORM DELIVERY
+     -------------------------------------------------------
+     GitHub Pages is static hosting, so it cannot send mail
+     itself. These providers accept a browser POST and
+     forward it to your inbox. Pick one, fill in the value,
+     and the form goes live.
+
+     provider: 'web3forms'  -> set accessKey  (recommended;
+                               your address stays out of the
+                               page source)
+     provider: 'formsubmit' -> set email      (no signup, but
+                               the address is visible in the
+                               page source)
+
+     Until it is configured the form stays in demo mode and
+     only shows a notice.
+     ======================================================= */
+  var FORM = {
+    provider:  'web3forms',
+    accessKey: 'YOUR_WEB3FORMS_ACCESS_KEY',
+    email:     'you@example.com',
+    subject:   'New enquiry from the XYZ Company website'
+  };
+
   var $  = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
@@ -161,7 +186,7 @@
     });
   });
 
-  /* ---------- Contact form (front-end validation only) ---------- */
+  /* ---------- Contact form: validate, then POST to the provider ---------- */
   var form = $('#contactForm');
   var note = $('#formNote');
 
@@ -198,10 +223,76 @@
     return ok;
   }
 
+  function isConfigured() {
+    if (FORM.provider === 'web3forms') {
+      return !!FORM.accessKey && FORM.accessKey !== 'YOUR_WEB3FORMS_ACCESS_KEY';
+    }
+    if (FORM.provider === 'formsubmit') {
+      return !!FORM.email && FORM.email.indexOf('@') > 0;
+    }
+    return false;
+  }
+
+  function showNote(text, kind) {
+    if (!note) return;
+    note.textContent = text;
+    note.classList.toggle('form__note--error', kind === 'error');
+    note.hidden = false;
+    note.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function buildPayload() {
+    var base = {
+      name:    $('#name').value.trim(),
+      email:   $('#email').value.trim(),
+      phone:   $('#phone').value.trim() || 'Not provided',
+      topic:   $('#topic').value,
+      message: $('#message').value.trim(),
+      subject: FORM.subject,
+      page:    window.location.href
+    };
+
+    if (FORM.provider === 'web3forms') {
+      base.access_key = FORM.accessKey;
+      base.from_name = 'XYZ Company website';
+      base.replyto = base.email;
+      base.botcheck = '';
+    } else {
+      // FormSubmit reserved fields
+      base._subject  = FORM.subject;
+      base._replyto  = base.email;
+      base._template = 'table';
+      base._captcha  = 'false';
+    }
+    return base;
+  }
+
+  function endpoint() {
+    return FORM.provider === 'web3forms'
+      ? 'https://api.web3forms.com/submit'
+      : 'https://formsubmit.co/ajax/' + encodeURIComponent(FORM.email);
+  }
+
+  function clearFields() {
+    form.reset();
+    $$('.field', form).forEach(function (f) {
+      f.classList.remove('has-error');
+      var slot = $('.err', f);
+      if (slot) slot.textContent = '';
+    });
+  }
+
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (note) note.hidden = true;
+
+      // Honeypot: a filled hidden field means a bot. Fail silently.
+      if ($('#botcheck') && $('#botcheck').value) {
+        showNote('Thanks - your message has been sent.', 'ok');
+        clearFields();
+        return;
+      }
 
       if (!validate()) {
         var firstBad = $('.field.has-error input, .field.has-error textarea');
@@ -209,26 +300,52 @@
         return;
       }
 
-      var btn = $('button[type="submit"]', form);
+      var btn = $('#formSubmit');
       var original = btn.textContent;
+
+      if (!isConfigured()) {
+        showNote(
+          'Form delivery is not configured yet, so nothing was sent. ' +
+          'Add your provider key in js/main.js to switch this on.',
+          'error'
+        );
+        return;
+      }
+
       btn.disabled = true;
       btn.textContent = 'Sending...';
 
-      // No backend: simulate the round trip, then confirm.
-      setTimeout(function () {
-        btn.disabled = false;
-        btn.textContent = original;
-        form.reset();
-        $$('.field', form).forEach(function (f) {
-          f.classList.remove('has-error');
-          var slot = $('.err', f);
-          if (slot) slot.textContent = '';
+      fetch(endpoint(), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(buildPayload())
+      })
+        .then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (data) {
+            return { ok: res.ok, data: data };
+          });
+        })
+        .then(function (result) {
+          // Both providers report success either via HTTP status or a
+          // success flag, which FormSubmit sends as the string "true".
+          var ok = result.ok && String(result.data.success) !== 'false';
+          if (!ok) {
+            throw new Error(result.data.message || 'Request failed');
+          }
+          clearFields();
+          showNote('Thanks - your message has been sent. We will get back to you shortly.', 'ok');
+        })
+        .catch(function (err) {
+          showNote(
+            'Sorry, the message could not be sent (' + err.message + '). ' +
+            'Please email us directly instead.',
+            'error'
+          );
+        })
+        .then(function () {
+          btn.disabled = false;
+          btn.textContent = original;
         });
-        if (note) {
-          note.hidden = false;
-          note.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-      }, 900);
     });
 
     $$('input, textarea', form).forEach(function (input) {

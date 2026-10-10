@@ -460,6 +460,12 @@ p{margin:0 0 1rem}
   font-size:.88rem;color:#0d6b58;background:rgba(0,201,167,.12);
   border:1px solid rgba(0,201,167,.3);
 }
+.form__note--error{color:#a3242f;background:rgba(217,58,74,.09);border-color:rgba(217,58,74,.32)}
+
+/* Honeypot - off-screen rather than display:none, which some bots detect */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+.btn:disabled{opacity:.65;cursor:not-allowed;transform:none;box-shadow:none}
 
 /* ---------- Footer ---------- */
 .footer{background:var(--navy-900);color:#9aa6c6;padding-top:clamp(50px,6vw,72px)}
