@@ -1,0 +1,16 @@
+# OS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# Dependencies (not used, but kept for safety if tooling is added later)
+node_modules/
