@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 763 516" role="img" aria-labelledby="title desc">
+  <title id="title">SharpBees</title>
+  <desc id="desc">SharpBees since 2026 logo with multicolored circuit lines</desc>
+  <rect width="763" height="516" fill="#080d4c"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="9">
+    <path stroke="#ff3d8d" d="M111 182C157 116 242 75 325 68m-211 114 20-25m24-29 19-16m37-15 17-5m44-20 19-3"/>
+    <path stroke="#ff7a47" d="M207 116c78-30 153-25 225-1m-224 1 17-8m33-10 18-3m43-6 16 1m45 5 17 5"/>
+    <path stroke="#ffab31" d="M277 96c82-15 172-1 248 39m-248-39 16-2m47-3 16 1m50 6 16 4m41 15 15 7"/>
+    <path stroke="#9bd63b" d="M229 180c78 46 156 57 249 43m-249-43 18 10m44 19 18 6m44 11 18 2m46 2 17-1"/>
+    <path stroke="#81c952" d="M302 183c66 28 132 34 202 19m-202-19 18 7m42 11 18 3m46 0 17-2"/>
+    <path stroke="#6b91dc" d="M325 250c91 30 180 19 259-37m-259 37 18 5m48 7 18 1m48-5 18-5m47-18 17-10m36-31 13-15"/>
+  </g>
+  <g fill="#080d4c" stroke-width="9">
+    <g stroke="#ff3d8d"><circle cx="111" cy="182" r="10"/><circle cx="132" cy="157" r="10"/><circle cx="151" cy="141" r="10"/><circle cx="208" cy="117" r="10"/><circle cx="242" cy="104" r="10"/></g>
+    <g stroke="#ff7a47"><circle cx="260" cy="99" r="10"/><circle cx="326" cy="68" r="10"/><circle cx="355" cy="68" r="10"/></g>
+    <g stroke="#ffab31"><circle cx="432" cy="82" r="10"/><circle cx="525" cy="121" r="10"/><circle cx="454" cy="151" r="10"/></g>
+    <g stroke="#9bd63b"><circle cx="229" cy="180" r="11"/><circle cx="301" cy="183" r="10"/><circle cx="324" cy="250" r="11"/><circle cx="401" cy="265" r="10"/></g>
+    <g stroke="#6b91dc"><circle cx="510" cy="195" r="10"/><circle cx="545" cy="216" r="10"/><circle cx="566" cy="171" r="9"/><circle cx="610" cy="197" r="10"/><circle cx="644" cy="147" r="9"/></g>
+  </g>
+  <text x="381.5" y="397" text-anchor="middle" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="75" font-weight="800" letter-spacing="2">SHARPBEES</text>
+  <text x="381.5" y="464" text-anchor="middle" fill="#86c946" font-family="Arial, Helvetica, sans-serif" font-size="45" font-weight="700" letter-spacing="17">SINCE 2026</text>
+</svg>
