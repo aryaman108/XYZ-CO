@@ -110,7 +110,7 @@ p{margin:0 0 1rem}
 .header__inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;min-height:76px}
 
 .brand{display:inline-flex;align-items:center}
-.brand__logo{display:block;width:112px;height:auto}
+.brand__logo{display:block;width:178px;height:auto}
 
 .nav{display:flex;align-items:center;gap:2rem}
 .nav__list{display:flex;align-items:center;gap:.4rem}
@@ -463,7 +463,7 @@ p{margin:0 0 1rem}
   padding-bottom:3rem;
 }
 .brand--footer{margin-bottom:1.1rem}
-.brand--footer .brand__logo{width:148px}
+.brand--footer .brand__logo{width:188px}
 .footer__col--brand p{font-size:.93rem;max-width:36ch;margin-bottom:1.3rem}
 .footer__social{display:flex;gap:.7rem}
 .footer__social a{
@@ -543,7 +543,7 @@ p{margin:0 0 1rem}
 @media (max-width:640px){
   .container{padding:0 18px}
   html{scroll-padding-top:86px}
-  .brand__logo{width:98px}
+  .brand__logo{width:158px}
   .topbar__contacts a:last-child{display:none}
   .field-row{grid-template-columns:1fr}
   .form{padding:1.4rem}

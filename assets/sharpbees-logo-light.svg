@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 112" role="img" aria-labelledby="title desc">
+  <title id="title">SharpBees</title>
+  <desc id="desc">SharpBees blue and teal geometric mark with white wordmark</desc>
+  <defs>
+    <linearGradient id="mark-gradient" x1="13%" y1="8%" x2="88%" y2="94%">
+      <stop offset="0" stop-color="#5144c4"/>
+      <stop offset=".48" stop-color="#2e75cc"/>
+      <stop offset="1" stop-color="#15d0bb"/>
+    </linearGradient>
+    <clipPath id="mark-clip">
+      <rect x="10" y="10" width="92" height="92" rx="22" transform="rotate(45 56 56)"/>
+    </clipPath>
+  </defs>
+  <rect x="10" y="10" width="92" height="92" rx="22" fill="url(#mark-gradient)" transform="rotate(45 56 56)"/>
+  <g clip-path="url(#mark-clip)" fill="none" stroke="#effffb" stroke-linecap="round" stroke-width="10">
+    <path d="M37 62 61 38"/>
+    <path d="m49 78 39-39"/>
+    <path d="m64 93 39-39"/>
+  </g>
+  <text x="125" y="70" fill="#ffffff" font-family="Plus Jakarta Sans,Arial,sans-serif" font-size="39" font-weight="800" letter-spacing="2">SHARPBEES</text>
+</svg>
