@@ -109,19 +109,8 @@ p{margin:0 0 1rem}
 .header.is-stuck{box-shadow:var(--shadow-sm);border-bottom-color:var(--line)}
 .header__inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;min-height:76px}
 
-.brand{display:inline-flex;align-items:center;gap:.65rem}
-.brand__mark{
-  width:40px;height:40px;border-radius:12px;
-  display:grid;place-items:center;
-  font-family:var(--font-head);font-weight:800;font-size:1.25rem;color:#fff;
-  background:linear-gradient(135deg,var(--brand),#6b4bff);
-  box-shadow:0 8px 20px rgba(47,107,255,.35);
-}
-.brand__text{
-  font-family:var(--font-head);font-weight:800;font-size:1.3rem;
-  color:var(--ink);letter-spacing:-.03em;
-}
-.brand__text span{color:var(--brand);font-weight:700}
+.brand{display:inline-flex;align-items:center}
+.brand__logo{display:block;width:112px;height:auto}
 
 .nav{display:flex;align-items:center;gap:2rem}
 .nav__list{display:flex;align-items:center;gap:.4rem}
@@ -474,7 +463,7 @@ p{margin:0 0 1rem}
   padding-bottom:3rem;
 }
 .brand--footer{margin-bottom:1.1rem}
-.brand--footer .brand__text{color:#fff}
+.brand--footer .brand__logo{width:148px}
 .footer__col--brand p{font-size:.93rem;max-width:36ch;margin-bottom:1.3rem}
 .footer__social{display:flex;gap:.7rem}
 .footer__social a{
@@ -554,6 +543,7 @@ p{margin:0 0 1rem}
 @media (max-width:640px){
   .container{padding:0 18px}
   html{scroll-padding-top:86px}
+  .brand__logo{width:98px}
   .topbar__contacts a:last-child{display:none}
   .field-row{grid-template-columns:1fr}
   .form{padding:1.4rem}

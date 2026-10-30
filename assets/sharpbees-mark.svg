@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title">
+  <title id="title">SharpBees mark</title>
+  <rect width="160" height="160" rx="28" fill="#080d4c"/>
+  <g fill="none" stroke-linecap="round" stroke-width="7">
+    <path stroke="#ff3d8d" d="M24 70c17-25 39-38 66-42"/>
+    <path stroke="#ffab31" d="M52 48c26-9 54-5 82 10"/>
+    <path stroke="#9bd63b" d="M42 77c29 16 55 18 83 11"/>
+    <path stroke="#6b91dc" d="M57 108c31 10 58 3 82-15"/>
+  </g>
+  <g fill="#080d4c" stroke-width="7">
+    <circle cx="24" cy="70" r="8" stroke="#ff3d8d"/>
+    <circle cx="90" cy="28" r="8" stroke="#ff7a47"/>
+    <circle cx="134" cy="58" r="8" stroke="#ffab31"/>
+    <circle cx="42" cy="77" r="8" stroke="#9bd63b"/>
+    <circle cx="140" cy="93" r="8" stroke="#6b91dc"/>
+  </g>
+</svg>
