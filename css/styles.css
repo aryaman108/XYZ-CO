@@ -110,7 +110,7 @@ p{margin:0 0 1rem}
 .header__inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;min-height:76px}
 
 .brand{display:inline-flex;align-items:center}
-.brand__logo{display:block;width:112px;height:auto}
+.brand__logo{display:block;width:184px;height:auto}
 
 .nav{display:flex;align-items:center;gap:2rem}
 .nav__list{display:flex;align-items:center;gap:.4rem}
